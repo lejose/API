@@ -2,7 +2,7 @@
 
 class TokenController{
 	
-	
+	// Fonction initiation
 	public function init():boolean {
 
         if (!empty($_GET)) {
