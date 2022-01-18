@@ -7,8 +7,9 @@ class TokenController{
 
         if (!empty($_GET)) {
 
-            if (isset($_GET['token']) && $_GET['token'] == '1234') {
-                echo "ca marche";
+            if (isset($_GET['token']) && $_GET['token'] == '5678') {
+
+
 				return true;
                
             } else {
