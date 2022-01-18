@@ -7,7 +7,7 @@ class TokenController{
 
         if (!empty($_GET)) {
 
-            if (isset($_GET['token']) && $_GET['token'] == '1234') {
+            if (isset($_GET['token']) && $_GET['token'] == '5678') {
 
 				return true;
                
