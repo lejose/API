@@ -22,6 +22,7 @@ class Ajax_API extends API_Config {
 
     private function filterRequest($data)
     {
+        //comment
         switch ($data['table']) {
 
             case "articles" :
