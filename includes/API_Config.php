@@ -74,4 +74,23 @@ class API_Config {
             exit();
         }
     }
+
+    /**
+     * Ajoute un USER à la BDD
+     */
+
+    public function addUser($id, $firstname, $lastname, $phone, $email, $avatar, $password);
+    {
+        $db = $this->db();
+        try{
+            $qry = "INSERT INTO users VALUES (".$id.", ".$firstname.", ".$lastname.", ".$phone.", ".$email.", ".$avatar.", ".$password.");";
+            $stt = $db->prepare($qry);
+            $stt->execute();
+            return $stt->fetch(\PDO::FETCH_ASSOC);
+        } catch (\PDOException $e) {
+
+            echo json_encode(['data' => null, 'error' => $e->getMessage()]);
+            exit();
+        }
+    }
 }
