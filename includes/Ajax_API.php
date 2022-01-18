@@ -19,20 +19,20 @@ class Ajax_API extends API_Config {
 
     private function filterRequest($data)
     {
-        if (isset($data['table']) && ($data['table'] === 'articles' || $data['table'] === 'users')) {
+        switch ($data['table']) {
 
-            if (isset($data['data'])) {
-
+            case "articles" :
                 return json_encode(['data' => $this->getOneFrom($data['table'], $data['data']), 'error' => null]);
+                break;
 
-            } else {
 
-                return json_encode(['data' => $this->getAllTable($data['table']), 'error' => null]);
-            }
+            case "users"
+                return json_encode(['data' => $this->getOneFrom($data['table'], $data['data']), 'error' => null]);
+                break;
 
-        } else {
+            default : 
+                return json_encode(['data' => null, 'error' => 'Bad table']);
 
-            return json_encode(['data' => null, 'error' => 'Bad table']);
         }
-    }
+
 }
